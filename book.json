@@ -1,0 +1,66 @@
+{
+  "title": "숲속 작은 등불",
+  "subtitle": "예시 웹북",
+  "description": "이 저장소를 복사해 내 이야기로 바꿔 쓰는 예시 책입니다.",
+  "genre": "picturebook",
+  "aspectRatio": "3:4",
+  "coverAssetId": "cover",
+  "credits": {
+    "author": "작가 이름",
+    "tools": ["직접 그림", "직접 씀"]
+  },
+  "pages": [
+    {
+      "id": "forest",
+      "title": "숲으로",
+      "body": "작은 등불이 숲길을 비추었어요.\n나무들이 조용히 인사했지요.",
+      "layout": "split",
+      "imageAssetId": "forest",
+      "imageAlt": "세모난 나무 세 그루 사이 풀밭에 작은 등불이 놓여 있는 그림"
+    },
+    {
+      "id": "choose",
+      "title": "어디로 갈까요?",
+      "body": "길이 두 갈래로 나뉘었어요.",
+      "layout": "text",
+      "interactions": [
+        {
+          "id": "way",
+          "type": "choice",
+          "title": "등불은 어느 길로 갈까요?",
+          "options": [
+            { "label": "환한 언덕 길" },
+            { "label": "조용한 시냇물 길" }
+          ]
+        },
+        {
+          "id": "hint",
+          "type": "reveal",
+          "title": "작은 쪽지",
+          "label": "쪽지 펴 보기",
+          "body": "어느 길이든 끝에서 친구가 기다려요."
+        }
+      ]
+    },
+    {
+      "id": "end",
+      "title": "끝",
+      "body": "등불은 친구를 만나 함께 밤길을 밝혔답니다.",
+      "layout": "text",
+      "interactions": [
+        {
+          "id": "hill-ending",
+          "type": "passage",
+          "body": "언덕 위에서 반딧불이가 반짝였어요.",
+          "showWhen": { "page": "choose", "interaction": "way", "picked": [0] }
+        },
+        {
+          "id": "creek-ending",
+          "type": "passage",
+          "body": "시냇물이 노래하며 길을 알려 주었어요.",
+          "showWhen": { "page": "choose", "interaction": "way", "picked": [1] }
+        }
+      ]
+    }
+  ]
+}
